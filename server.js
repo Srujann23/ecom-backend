@@ -1,5 +1,5 @@
 import express from 'express'
-import cors from 'cors'
+// import cors from 'cors'
 import 'dotenv/config'
 import morgan from 'morgan';
 import connectDB from './config/mongodb.js';
@@ -23,25 +23,26 @@ app.use(express.json())
 //     allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
 //     credentials: true,
 // };
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173"); // Replace with your frontend domain
-    res.setHeader(
-        "Access-Control-Allow-Headers",
+// app.use((req, res, next) => {
+//     res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173"); // Replace with your frontend domain
+//     res.setHeader(
+//         "Access-Control-Allow-Headers",
 
-        "Access-Control-Allow-Origin, Origin, X-Requested-With, Content-Type, Accept"
-    );
-    res.setHeader(
-        "Access-Control-Allow-Methods",
+//         "Access-Control-Allow-Origin, Origin, X-Requested-With, Content-Type, Accept"
+//     );
+//     res.setHeader(
+//         "Access-Control-Allow-Methods",
 
-        "GET, POST, PUT, DELETE, OPTIONS"
-    );
+//         "GET, POST, PUT, DELETE, OPTIONS"
+//     );
 
-    if (req.method === 'OPTIONS') {
-        return  res.sendStatus(204);
-    }
+//     if (req.method === 'OPTIONS') {
+//         return  res.sendStatus(204);
+//     }
 
-    next();
-});
+//     next();
+// });
+
 app.use(morgan('dev'))
 
 //api eps
